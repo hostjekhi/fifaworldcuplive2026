@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FIFA World Cup 2026 · Knockout Stage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        /* ----- RESET & PREMIUM BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #06080f;
+            color: #f0f4ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px;
+            background-image:
+                radial-gradient(ellipse at 20% 30%, rgba(212, 160, 32, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(212, 160, 32, 0.03) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b101f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #d4a020, #b8860b);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1360px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero {
+            position: relative;
+            background: radial-gradient(ellipse at 30% 20%, rgba(212, 160, 32, 0.08), transparent 70%),
+                radial-gradient(ellipse at 70% 80%, rgba(212, 160, 32, 0.04), transparent 60%),
+                linear-gradient(145deg, #0d1428, #06080f);
+            border-radius: 32px;
+            padding: 48px 56px 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(212, 160, 32, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(212, 160, 32, 0.06);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero::before {
+            content: '2026';
+            position: absolute;
+            top: -20%;
+            right: -5%;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 200px;
+            font-weight: 900;
+            color: rgba(212, 160, 32, 0.025);
+            pointer-events: none;
+            letter-spacing: 10px;
+            transform: rotate(-6deg);
+            line-height: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 160, 32, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(40px);
+        }
+
+        .hero-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 8px;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-brand .icon-wrap {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(212, 160, 32, 0.15), rgba(184, 134, 11, 0.05));
+            border-radius: 50%;
+            border: 1px solid rgba(212, 160, 32, 0.12);
+            box-shadow: 0 0 40px rgba(212, 160, 32, 0.06);
+        }
+
+        .hero-brand .icon-wrap i {
+            font-size: 36px;
+            color: #d4a020;
+            filter: drop-shadow(0 0 20px rgba(212, 160, 32, 0.15));
+        }
+
+        .hero-brand .title-group .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #d4a020 0%, #f7c948 40%, #d4a020 80%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 5s ease-in-out infinite;
+            line-height: 1.2;
+        }
+
+        @keyframes goldShimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-brand .title-group .sub-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: #6b76a0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            -webkit-text-fill-color: #6b76a0;
+            margin-top: 2px;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(212, 160, 32, 0.05);
+            border: 1px solid rgba(212, 160, 32, 0.10);
+            border-radius: 60px;
+            padding: 10px 28px 10px 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 0 rgba(212, 160, 32, 0.04);
+        }
+
+        .hero-badge i {
+            font-size: 20px;
+            color: #d4a020;
+            opacity: 0.8;
+        }
+
+        .hero-badge .badge-text {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4a020;
+        }
+
+        .hero-badge .badge-text span {
+            color: #4a5578;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ----- STAGE TIMELINE ----- */
+        .stage-timeline {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            gap: 0;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .stage-timeline .stage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1 0 auto;
+            min-width: 70px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            gap: 8px;
+            padding: 0 6px;
+        }
+
+        .stage-timeline .stage-item::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: calc(-50% + 20px);
+            right: calc(50% + 20px);
+            height: 2px;
+            background: rgba(255, 255, 255, 0.04);
+            z-index: 0;
+            transition: background 0.6s ease;
+        }
+
+        .stage-timeline .stage-item:first-child::before {
+            display: none;
+        }
+
+        .stage-timeline .stage-item.active::before,
+        .stage-timeline .stage-item.active~.stage-item::before {
+            background: linear-gradient(90deg, #d4a020, rgba(212, 160, 32, 0.2));
+        }
+
+        .stage-timeline .stage-item .dot-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #0b1122;
+            border: 2px solid rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .stage-timeline .stage-item.active .dot-wrap {
+            border-color: #d4a020;
+            background: rgba(212, 160, 32, 0.08);
+            box-shadow: 0 0 30px rgba(212, 160, 32, 0.08), inset 0 0 20px rgba(212, 160, 32, 0.02);
+            transform: scale(1.05);
+        }
+
+        .stage-timeline .stage-item .dot-wrap .dot-icon {
+            font-size: 16px;
+            color: #4a5578;
+            transition: color 0.4s ease;
+        }
+
+        .stage-timeline .stage-item.active .dot-wrap .dot-icon {
+            color: #d4a020;
+        }
+
+        .stage-timeline .stage-item .stage-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #4a5578;
+            transition: color 0.4s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .stage-timeline .stage-item.active .stage-label {
+            color: #d4a020;
+        }
+
+        .stage-timeline .stage-item .match-count-badge {
+            font-size: 10px;
+            font-weight: 800;
+            color: #2a3350;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .stage-timeline .stage-item.active .match-count-badge {
+            background: #d4a020;
+            color: #06080f;
+            border-color: #d4a020;
+            box-shadow: 0 0 20px rgba(212, 160, 32, 0.15);
+        }
+
+        .stage-timeline .stage-item:hover .dot-wrap {
+            border-color: rgba(212, 160, 32, 0.3);
+            transform: scale(1.04);
+        }
+
+        /* ----- STREAMING PLAYER ----- */
+        .player-section {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(145deg, rgba(13, 20, 40, 0.8), rgba(6, 8, 15, 0.9));
+            border-radius: 28px;
+            padding: 18px;
+            margin-bottom: 44px;
+            border: 1px solid rgba(212, 160, 32, 0.06);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(212, 160, 32, 0.04);
+            backdrop-filter: blur(12px);
+        }
+
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 52.5%;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #04070e;
+        }
+
+        .player-wrapper iframe,
+        .player-wrapper .player-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 18px;
+        }
+
+        .player-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, #121b33, #060a14);
+            gap: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-placeholder .bg-glow {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(212, 160, 32, 0.05), transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .player-placeholder .play-icon {
+            font-size: 80px;
+            color: #d4a020;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 60px rgba(212, 160, 32, 0.05));
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .player-placeholder:hover .play-icon {
+            transform: scale(1.06);
+            opacity: 0.95;
+        }
+
+        .player-placeholder .live-ring {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(231, 76, 60, 0.06);
+            border: 1px solid rgba(231, 76, 60, 0.15);
+            padding: 10px 32px 10px 24px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+        }
+
+        .player-placeholder .live-ring .pulse-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e74c3c;
+            box-shadow: 0 0 30px rgba(231, 76, 60, 0.4);
+            animation: pulseRing 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.7);
+                opacity: 0.5;
+            }
+        }
+
+        .player-placeholder .live-ring .live-text {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #ff6b6b;
+        }
+
+        .player-placeholder .stream-hint {
+            font-size: 13px;
+            font-weight: 300;
+            color: #4a5578;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .player-placeholder .stream-hint i {
+            margin-right: 8px;
+            color: #d4a020;
+            opacity: 0.4;
+        }
+
+        .player-caption {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            padding: 0 8px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .player-caption .featured-match {
+            font-size: 14px;
+            font-weight: 600;
+            color: #b0b8d1;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .player-caption .featured-match i {
+            color: #d4a020;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        .player-caption .featured-match .teams-highlight {
+            color: #d4a020;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .player-caption .quality-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 160, 32, 0.05);
+            border: 1px solid rgba(212, 160, 32, 0.06);
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b76a0;
+        }
+
+        .player-caption .quality-badge i {
+            color: #d4a020;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* ----- SECTION HEADER ----- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header .left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .section-header .left h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #e8edff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header .left h2 i {
+            color: #d4a020;
+            opacity: 0.5;
+            font-size: 18px;
+        }
+
+        .section-header .left .round-tag {
+            background: linear-gradient(135deg, #d4a020, #b8860b);
+            color: #06080f;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 18px;
+            border-radius: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 30px rgba(212, 160, 32, 0.08);
+        }
+
+        .section-header .match-count {
+            font-size: 13px;
+            color: #4a5578;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6px 22px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header .match-count i {
+            color: #d4a020;
+            opacity: 0.3;
+        }
+
+        /* ----- MATCH GRID ----- */
+        .match-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+            gap: 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ----- MATCH CARD ----- */
+        .match-card {
+            background: linear-gradient(145deg, rgba(16, 26, 46, 0.9), rgba(8, 13, 28, 0.95));
+            border-radius: 24px;
+            padding: 26px 26px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .match-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(212, 160, 32, 0.0), rgba(212, 160, 32, 0.0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.6s ease;
+        }
+
+        .match-card:hover::before {
+            background: linear-gradient(135deg, rgba(212, 160, 32, 0.18), rgba(212, 160, 32, 0.03), rgba(212, 160, 32, 0.12));
+        }
+
+        .match-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(212, 160, 32, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(212, 160, 32, 0.02);
+        }
+
+        .match-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(212, 160, 32, 0.08), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .match-card:hover::after {
+            opacity: 1;
+        }
+
+        .match-card.live::after {
+            opacity: 1;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #ff6b6b, #e74c3c);
+            background-size: 200% 100%;
+            animation: liveBar 2s ease-in-out infinite;
+        }
+
+        @keyframes liveBar {
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+        }
+
+        .match-card.finished {
+            opacity: 0.65;
+        }
+        .match-card.finished::after {
+            opacity: 1;
+            background: #1f2840;
+            height: 2px;
+        }
+
+        .match-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 11px;
+            color: #3a4568;
+        }
+
+        .match-meta .round-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+            color: #4a5578;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .match-meta .time-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 12px;
+            color: #5a6a8a;
+        }
+
+        .match-meta .time-label i {
+            color: #d4a020;
+            font-size: 12px;
+            opacity: 0.4;
+        }
+
+        .teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .team.away {
+            justify-content: flex-end;
+        }
+
+        .team .flag {
+            font-size: 40px;
+            line-height: 1;
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .match-card:hover .team .flag {
+            transform: scale(1.06);
+        }
+
+        .team .name {
+            font-weight: 600;
+            font-size: 17px;
+            color: #e8edff;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .team.away .name {
+            text-align: right;
+        }
+
+        .score {
+            font-size: 34px;
+            font-weight: 800;
+            color: #d4a020;
+            background: rgba(212, 160, 32, 0.04);
+            padding: 0 18px;
+            border-radius: 16px;
+            min-width: 70px;
+            text-align: center;
+            letter-spacing: 3px;
+            font-variant-numeric: tabular-nums;
+            font-family: 'Orbitron', sans-serif;
+            border: 1px solid rgba(212, 160, 32, 0.04);
+            line-height: 1.4;
+        }
+
+        .score .vs {
+            font-size: 18px;
+            font-weight: 400;
+            color: #2a3350;
+            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .match-card.live .score {
+            color: #ff6b6b;
+            background: rgba(231, 76, 60, 0.04);
+            border-color: rgba(231, 76, 60, 0.06);
+            animation: scorePulse 2.2s ease-in-out infinite;
+        }
+
+        @keyframes scorePulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .match-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            font-size: 12px;
+            color: #3a4568;
+        }
+
+        .match-footer .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .status-badge.live {
+            color: #ff6b6b;
+        }
+        .status-badge.live i {
+            font-size: 8px;
+            animation: pulseRing 1.4s infinite;
+        }
+
+        .status-badge.finished {
+            color: #3a4568;
+        }
+        .status-badge.upcoming {
+            color: #3a4568;
+        }
+
+        .match-footer .venue {
+            font-size: 11px;
+            color: #2a3350;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .match-footer .venue i {
+            color: #d4a020;
+            opacity: 0.2;
+            font-size: 12px;
+        }
+
+        /* ----- EMPTY STATE ----- */
+        .empty-state {
+            text-align: center;
+            padding: 70px 20px;
+            color: #3a4568;
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 24px;
+            border: 1px dashed rgba(255, 255, 255, 0.02);
+        }
+
+        .empty-state i {
+            font-size: 56px;
+            color: #d4a020;
+            opacity: 0.08;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .empty-state p {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 56px;
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer .footer-links a {
+            color: #2a3350;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer .footer-links a:hover {
+            color: #d4a020;
+        }
+
+        .footer .copy {
+            color: #1a2335;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .footer .copy i {
+            color: #d4a020;
+            opacity: 0.15;
+            margin: 0 6px;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 32px 28px 32px;
+            }
+            .hero-brand .title-group .main-title {
+                font-size: 22px;
+            }
+            .match-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 20px;
+            }
+            .stage-timeline .stage-item .stage-label {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+            .stage-timeline .stage-item .dot-wrap {
+                width: 36px;
+                height: 36px;
+            }
+            .stage-timeline .stage-item .dot-wrap .dot-icon {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            .hero {
+                padding: 24px 18px 24px;
+                border-radius: 20px;
+            }
+            .hero-brand .title-group .main-title {
+                font-size: 18px;
+            }
+            .hero-brand .icon-wrap {
+                width: 48px;
+                height: 48px;
+            }
+            .hero-brand .icon-wrap i {
+                font-size: 26px;
+            }
+            .hero-badge {
+                padding: 6px 16px 6px 14px;
+            }
+            .hero-badge .badge-text {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+            .hero-badge i {
+                font-size: 16px;
+            }
+            .stage-timeline {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                gap: 0;
+            }
+            .stage-timeline .stage-item {
+                min-width: 70px;
+                flex: 0 0 auto;
+            }
+            .stage-timeline .stage-item .stage-label {
+                font-size: 8px;
+                white-space: nowrap;
+            }
+            .stage-timeline .stage-item .dot-wrap {
+                width: 32px;
+                height: 32px;
+            }
+            .stage-timeline .stage-item .dot-wrap .dot-icon {
+                font-size: 12px;
+            }
+            .stage-timeline .stage-item .match-count-badge {
+                font-size: 8px;
+                padding: 0 6px;
+            }
+            .match-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .match-card {
+                padding: 18px 16px 16px;
+            }
+            .team .name {
+                font-size: 14px;
+            }
+            .team .flag {
+                font-size: 30px;
+            }
+            .score {
+                font-size: 26px;
+                min-width: 54px;
+                padding: 0 10px;
+            }
+            .player-section {
+                padding: 10px;
+                margin-bottom: 28px;
+            }
+            .player-wrapper {
+                padding-bottom: 56.25%;
+            }
+            .player-caption {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .player-caption .featured-match {
+                font-size: 13px;
+                flex-wrap: wrap;
+            }
+            .section-header .left h2 {
+                font-size: 16px;
+            }
+            .section-header .left .round-tag {
+                font-size: 9px;
+                padding: 3px 12px;
+            }
+            .section-header .match-count {
+                font-size: 11px;
+                padding: 4px 14px;
+            }
+            .footer .footer-links {
+                gap: 16px;
+            }
+            .footer .footer-links a {
+                font-size: 10px;
+            }
+            .player-placeholder .play-icon {
+                font-size: 56px;
+            }
+            .player-placeholder .live-ring {
+                padding: 6px 20px 6px 16px;
+            }
+            .player-placeholder .live-ring .live-text {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-brand .title-group .main-title {
+                font-size: 15px;
+                letter-spacing: 0.5px;
+            }
+            .hero-brand .title-group .sub-title {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+            .hero-brand .icon-wrap {
+                width: 40px;
+                height: 40px;
+            }
+            .hero-brand .icon-wrap i {
+                font-size: 20px;
+            }
+            .team .name {
+                font-size: 12px;
+            }
+            .team .flag {
+                font-size: 24px;
+            }
+            .team {
+                gap: 6px;
+            }
+            .score {
+                font-size: 20px;
+                min-width: 44px;
+                padding: 0 6px;
+                letter-spacing: 1px;
+            }
+            .match-meta {
+                font-size: 10px;
+                margin-bottom: 12px;
+            }
+            .match-footer {
+                font-size: 10px;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== HERO ===== -->
+        <header class="hero">
+            <div class="hero-top">
+                <div class="hero-brand">
+                    <div class="icon-wrap">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="title-group">
+                        <span class="main-title">FIFA World Cup 2026</span>
+                        <span class="sub-title"><i class="fas fa-trophy" style="margin-right:6px; opacity:0.4;"></i> Knockout Stage · The Road to Glory</span>
+                    </div>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-trophy"></i>
+                    <span class="badge-text">R32 <span>·</span> R16 <span>·</span> QF <span>·</span> SF <span>·</span> Final</span>
+                </div>
+            </div>
+
+            <!-- Stage Timeline -->
+            <nav class="stage-timeline" id="stageTimeline">
+                <div class="stage-item active" data-round="all">
+                    <div class="dot-wrap"><i class="fas fa-asterisk dot-icon"></i></div>
+                    <span class="stage-label">All</span>
+                    <span class="match-count-badge">31</span>
+                </div>
+                <div class="stage-item" data-round="Round of 32">
+                    <div class="dot-wrap"><i class="fas fa-flag dot-icon"></i></div>
+                    <span class="stage-label">Round of 32</span>
+                    <span class="match-count-badge">16</span>
+                </div>
+                <div class="stage-item" data-round="Round of 16">
+                    <div class="dot-wrap"><i class="fas fa-flag-checkered dot-icon"></i></div>
+                    <span class="stage-label">Round of 16</span>
+                    <span class="match-count-badge">8</span>
+                </div>
+                <div class="stage-item" data-round="Quarter-finals">
+                    <div class="dot-wrap"><i class="fas fa-trophy dot-icon"></i></div>
+                    <span class="stage-label">Quarter-finals</span>
+                    <span class="match-count-badge">4</span>
+                </div>
+                <div class="stage-item" data-round="Semi-finals">
+                    <div class="dot-wrap"><i class="fas fa-star dot-icon"></i></div>
+                    <span class="stage-label">Semi-finals</span>
+                    <span class="match-count-badge">2</span>
+                </div>
+                <div class="stage-item" data-round="Final">
+                    <div class="dot-wrap"><i class="fas fa-crown dot-icon"></i></div>
+                    <span class="stage-label">Final</span>
+                    <span class="match-count-badge">1</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ===== STREAMING PLAYER ===== -->
+        <section class="player-section">
+            <div class="player-wrapper">
+                <div class="player-placeholder" id="playerPlaceholder">
+                    <div class="bg-glow"></div>
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    <div class="live-ring">
+                        <span class="pulse-dot"></span>
+                        <span class="live-text">Live Now</span>
+                    </div>
+                    <div class="stream-hint">
+                        <i class="fas fa-broadcast-tower"></i> Knockout Stage · Ultra HD Stream
+                    </div>
+                </div>
+                <!-- Uncomment below for actual stream embed -->
+                <!--
+                <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen loading="lazy"></iframe>
+                -->
+            </div>
+            <div class="player-caption">
+                <span class="featured-match">
+                    <i class="fas fa-tv"></i>
+                    Featured: <span class="teams-highlight" id="featuredMatchText">Round of 16 · Portugal vs Spain</span>
+                </span>
+                <span class="quality-badge">
+                    <i class="fas fa-hdmi"></i> 4K HDR · 60fps · Dolby Atmos
+                </span>
+            </div>
+        </section>
+
+        <!-- ===== SECTION HEADER ===== -->
+        <div class="section-header">
+            <div class="left">
+                <h2><i class="fas fa-calendar-alt"></i> Match Schedule</h2>
+                <span class="round-tag" id="activeRoundTag">All Rounds</span>
+            </div>
+            <span class="match-count" id="matchCount"><i class="fas fa-list-ul"></i> 31 Matches</span>
+        </div>
+
+        <!-- ===== MATCH GRID ===== -->
+        <div class="match-grid" id="matchGrid"></div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-futbol"></i> FIFA 2026</a>
+                <a href="#"><i class="fas fa-ticket-alt"></i> Tickets</a>
+                <a href="#"><i class="fas fa-map-pin"></i> Venues</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> Official Site</a>
+            </div>
+            <div class="copy">
+                <i class="fas fa-futbol"></i> FIFA World Cup 2026 Knockout Stage · Round of 32 · Round of 16 · Quarter‑finals · Semi‑finals · Final
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //  MATCH DATA – Full Knockout Stage
+        //  Updated Round of 16 based on SBS On Demand links:
+        //  - Portugal vs Spain: 5:00 AM AEST at Dallas Stadium
+        //  - Switzerland vs Colombia: 3:30 AM AEST at BC Place Vancouver
+        //  - Argentina vs Egypt: time from previous data (21:30 AEST)
+        //  - France vs Morocco: updated to Quarter-final
+        // ============================================================
+        const allMatches = [
+            // ---- ROUND OF 32 (July 1-3, 2026) ----
+            { id: 1, round: 'Round of 32', home: { name: 'Brazil', flag: '🇧🇷' }, away: { name: 'Uruguay', flag: '🇺🇾' }, score: { home: 2, away: 1 }, status: 'finished', time: '2026-07-01 15:00', venue: 'Estádio Nacional, Brasília' },
+            { id: 2, round: 'Round of 32', home: { name: 'Argentina', flag: '🇦🇷' }, away: { name: 'Nigeria', flag: '🇳🇬' }, score: { home: 3, away: 0 }, status: 'finished', time: '2026-07-01 18:00', venue: 'Estádio do Maracanã, Rio de Janeiro' },
+            { id: 3, round: 'Round of 32', home: { name: 'France', flag: '🇫🇷' }, away: { name: 'Denmark', flag: '🇩🇰' }, score: { home: 1, away: 1 }, status: 'finished', time: '2026-07-01 21:00', venue: 'Allianz Arena, Munich' },
+            { id: 4, round: 'Round of 32', home: { name: 'Germany', flag: '🇩🇪' }, away: { name: 'Sweden', flag: '🇸🇪' }, score: { home: 2, away: 0 }, status: 'finished', time: '2026-07-02 15:00', venue: 'Wembley Stadium, London' },
+            { id: 5, round: 'Round of 32', home: { name: 'Spain', flag: '🇪🇸' }, away: { name: 'Croatia', flag: '🇭🇷' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-02 18:00', venue: 'Camp Nou, Barcelona' },
+            { id: 6, round: 'Round of 32', home: { name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' }, away: { name: 'Senegal', flag: '🇸🇳' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-02 21:00', venue: 'Old Trafford, Manchester' },
+            { id: 7, round: 'Round of 32', home: { name: 'Netherlands', flag: '🇳🇱' }, away: { name: 'Japan', flag: '🇯🇵' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-03 15:00', venue: 'Johan Cruyff Arena, Amsterdam' },
+            { id: 8, round: 'Round of 32', home: { name: 'Portugal', flag: '🇵🇹' }, away: { name: 'Switzerland', flag: '🇨🇭' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-03 18:00', venue: 'Estádio da Luz, Lisbon' },
+            { id: 9, round: 'Round of 32', home: { name: 'Belgium', flag: '🇧🇪' }, away: { name: 'Poland', flag: '🇵🇱' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-03 21:00', venue: 'King Baudouin Stadium, Brussels' },
+            { id: 10, round: 'Round of 32', home: { name: 'Italy', flag: '🇮🇹' }, away: { name: 'Ukraine', flag: '🇺🇦' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-04 15:00', venue: 'Stadio Olimpico, Rome' },
+            { id: 11, round: 'Round of 32', home: { name: 'Mexico', flag: '🇲🇽' }, away: { name: 'USA', flag: '🇺🇸' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-04 18:00', venue: 'Estadio Azteca, Mexico City' },
+            { id: 12, round: 'Round of 32', home: { name: 'Colombia', flag: '🇨🇴' }, away: { name: 'Chile', flag: '🇨🇱' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-04 21:00', venue: 'Estadio Monumental, Santiago' },
+            { id: 13, round: 'Round of 32', home: { name: 'Morocco', flag: '🇲🇦' }, away: { name: 'Egypt', flag: '🇪🇬' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-05 15:00', venue: 'Stade Mohammed V, Casablanca' },
+            { id: 14, round: 'Round of 32', home: { name: 'South Korea', flag: '🇰🇷' }, away: { name: 'Australia', flag: '🇦🇺' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-05 18:00', venue: 'Seoul World Cup Stadium' },
+            { id: 15, round: 'Round of 32', home: { name: 'Iran', flag: '🇮🇷' }, away: { name: 'Saudi Arabia', flag: '🇸🇦' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-05 21:00', venue: 'Azadi Stadium, Tehran' },
+            { id: 16, round: 'Round of 32', home: { name: 'Cameroon', flag: '🇨🇲' }, away: { name: 'Ghana', flag: '🇬🇭' }, score: { home: 0, away: 0 }, status: 'finished', time: '2026-07-06 15:00', venue: 'Stade Ahmadou Ahidjo, Yaoundé' },
+
+            // ---- ROUND OF 16 (Updated with SBS On Demand info) ----
+            { id: 17, round: 'Round of 16', home: { name: 'Canada', flag: '🇨🇦' }, away: { name: 'Morocco', flag: '🇲🇦' }, score: { home: 0, away: 3 }, status: 'finished', time: '2026-07-04 15:00', venue: 'Estádio do Maracanã, Rio de Janeiro' },
+            { id: 18, round: 'Round of 16', home: { name: 'Paraguay', flag: '🇵🇾' }, away: { name: 'France', flag: '🇫🇷' }, score: { home: 0, away: 1 }, status: 'finished', time: '2026-07-04 18:00', venue: 'Allianz Arena, Munich' },
+            { id: 19, round: 'Round of 16', home: { name: 'USA', flag: '🇺🇸' }, away: { name: 'Belgium', flag: '🇧🇪' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-05 05:30', venue: 'Wembley Stadium, London' },
+            // Updated: Portugal vs Spain at Dallas Stadium, 5:00 AM AEST
+            { id: 20, round: 'Round of 16', home: { name: 'Portugal', flag: '🇵🇹' }, away: { name: 'Spain', flag: '🇪🇸' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-05 05:00', venue: 'Dallas Stadium' },
+            { id: 21, round: 'Round of 16', home: { name: 'Brazil', flag: '🇧🇷' }, away: { name: 'Norway', flag: '🇳🇴' }, score: { home: 1, away: 2 }, status: 'finished', time: '2026-07-05 12:00', venue: 'Estádio Nacional, Brasília' },
+            { id: 22, round: 'Round of 16', home: { name: 'Mexico', flag: '🇲🇽' }, away: { name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' }, score: { home: 2, away: 3 }, status: 'finished', time: '2026-07-05 15:00', venue: 'Estadio Azteca, Mexico City' },
+            // Updated: Switzerland vs Colombia at BC Place Vancouver, 3:30 AM AEST
+            { id: 23, round: 'Round of 16', home: { name: 'Switzerland', flag: '🇨🇭' }, away: { name: 'Colombia', flag: '🇨🇴' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-08 03:30', venue: 'BC Place, Vancouver' },
+            // Argentina vs Egypt from previous data (21:30 AEST)
+            { id: 24, round: 'Round of 16', home: { name: 'Argentina', flag: '🇦🇷' }, away: { name: 'Egypt', flag: '🇪🇬' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-07 21:30', venue: 'Estádio do Maracanã, Rio de Janeiro' },
+
+            // ---- QUARTER-FINALS ----
+            // France vs Morocco moved to Quarter-finals (from SBS link)
+            { id: 25, round: 'Quarter-finals', home: { name: 'France', flag: '🇫🇷' }, away: { name: 'Morocco', flag: '🇲🇦' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-10 01:30', venue: 'Estádio do Maracanã, Rio de Janeiro' },
+            { id: 26, round: 'Quarter-finals', home: { name: 'TBD', flag: '🏆' }, away: { name: 'TBD', flag: '🏆' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-11 00:30', venue: 'TBD' },
+            { id: 27, round: 'Quarter-finals', home: { name: 'Norway', flag: '🇳🇴' }, away: { name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-12 02:30', venue: 'Allianz Arena, Munich' },
+            { id: 28, round: 'Quarter-finals', home: { name: 'TBD', flag: '🏆' }, away: { name: 'TBD', flag: '🏆' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-12 06:30', venue: 'TBD' },
+
+            // ---- SEMI-FINALS (July 16-17) ----
+            { id: 29, round: 'Semi-finals', home: { name: 'TBD', flag: '🏆' }, away: { name: 'TBD', flag: '🏆' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-16 15:00', venue: 'TBD' },
+            { id: 30, round: 'Semi-finals', home: { name: 'TBD', flag: '🏆' }, away: { name: 'TBD', flag: '🏆' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-17 15:00', venue: 'TBD' },
+
+            // ---- FINAL (July 19) ----
+            { id: 31, round: 'Final', home: { name: 'TBD', flag: '🏆' }, away: { name: 'TBD', flag: '🏆' }, score: { home: 0, away: 0 }, status: 'upcoming', time: '2026-07-19 18:00', venue: 'TBD' }
+        ];
+
+        // ============================================================
+        //  RENDER ENGINE
+        // ============================================================
+        const grid = document.getElementById('matchGrid');
+        const matchCountSpan = document.getElementById('matchCount');
+        const activeRoundTag = document.getElementById('activeRoundTag');
+        const featuredMatchText = document.getElementById('featuredMatchText');
+        const timelineItems = document.querySelectorAll('.stage-item');
+
+        let currentFilter = 'all';
+
+        // Helper to format date/time nicely
+        function formatMatchTime(dateStr) {
+            try {
+                const d = new Date(dateStr);
+                if (isNaN(d.getTime())) return dateStr;
+                return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
+            } catch (e) {
+                return dateStr;
+            }
+        }
+
+        function renderMatches(filter = 'all') {
+            const filtered = filter === 'all' ? allMatches : allMatches.filter(m => m.round === filter);
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-futbol"></i>
+                        <p>No matches scheduled for this round yet.</p>
+                    </div>
+                `;
+                matchCountSpan.innerHTML = `<i class="fas fa-list-ul"></i> 0 Matches`;
+                activeRoundTag.textContent = filter === 'all' ? 'All Rounds' : filter;
+                return;
+            }
+
+            filtered.forEach(m => {
+                const card = document.createElement('div');
+                card.className = `match-card ${m.status}`;
+
+                // Meta
+                const meta = document.createElement('div');
+                meta.className = 'match-meta';
+                const timeDisplay = m.time.includes('T') ? formatMatchTime(m.time) : m.time;
+                meta.innerHTML = `
+                    <span class="round-label"><i class="fas fa-flag-checkered" style="margin-right:6px; opacity:0.4;"></i> ${m.round}</span>
+                    <span class="time-label"><i class="far fa-clock"></i> ${timeDisplay}</span>
+                `;
+                card.appendChild(meta);
+
+                // Teams
+                const teamsDiv = document.createElement('div');
+                teamsDiv.className = 'teams';
+
+                const homeTeam = document.createElement('div');
+                homeTeam.className = 'team';
+                homeTeam.innerHTML = `
+                    <span class="flag">${m.home.flag}</span>
+                    <span class="name">${m.home.name}</span>
+                `;
+
+                const scoreDiv = document.createElement('div');
+                scoreDiv.className = 'score';
+                if (m.status === 'upcoming') {
+                    scoreDiv.innerHTML = `<span class="vs">vs</span>`;
+                } else {
+                    scoreDiv.textContent = `${m.score.home} – ${m.score.away}`;
+                }
+
+                const awayTeam = document.createElement('div');
+                awayTeam.className = 'team away';
+                awayTeam.innerHTML = `
+                    <span class="name">${m.away.name}</span>
+                    <span class="flag">${m.away.flag}</span>
+                `;
+
+                teamsDiv.appendChild(homeTeam);
+                teamsDiv.appendChild(scoreDiv);
+                teamsDiv.appendChild(awayTeam);
+                card.appendChild(teamsDiv);
+
+                // Footer
+                const footer = document.createElement('div');
+                footer.className = 'match-footer';
+
+                let statusHTML = '';
+                if (m.status === 'live') {
+                    statusHTML = `<span class="status-badge live"><i class="fas fa-circle"></i> Live</span>`;
+                } else if (m.status === 'finished') {
+                    statusHTML = `<span class="status-badge finished"><i class="fas fa-check-circle"></i> Finished</span>`;
+                } else {
+                    statusHTML = `<span class="status-badge upcoming"><i class="far fa-clock"></i> Upcoming</span>`;
+                }
+
+                footer.innerHTML = `
+                    ${statusHTML}
+                    <span class="venue"><i class="fas fa-map-pin"></i> ${m.venue}</span>
+                `;
+                card.appendChild(footer);
+
+                grid.appendChild(card);
+            });
+
+            // Update count & tag
+            const count = filtered.length;
+            matchCountSpan.innerHTML = `<i class="fas fa-list-ul"></i> ${count} Match${count !== 1 ? 'es' : ''}`;
+            const roundName = filter === 'all' ? 'All Rounds' : filter;
+            activeRoundTag.textContent = roundName;
+
+            // Update featured match: pick first live, else first upcoming from any round, else first overall
+            let featured = allMatches.find(m => m.status === 'live');
+            if (!featured) featured = allMatches.find(m => m.status === 'upcoming');
+            if (!featured) featured = allMatches[0];
+            if (featured) {
+                const timeDisplay = featured.time.includes('T') ? formatMatchTime(featured.time) : featured.time;
+                featuredMatchText.textContent = `${featured.round} · ${featured.home.name} vs ${featured.away.name} (${timeDisplay})`;
+            }
+        }
+
+        // ============================================================
+        //  TIMELINE FILTER LOGIC
+        // ============================================================
+        timelineItems.forEach(item => {
+            item.addEventListener('click', function() {
+                timelineItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.round;
+                renderMatches(currentFilter);
+            });
+        });
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        renderMatches('all');
+
+        // ============================================================
+        //  AUTO-REFRESH DEMO – Simulate live tournament
+        // ============================================================
+        let refreshInterval = setInterval(() => {
+            // Reset all matches to 'upcoming' first
+            allMatches.forEach(m => m.status = 'upcoming');
+
+            // Set finished matches from Round of 16 (based on previous data)
+            const round16Finished = ['Canada', 'Paraguay', 'Brazil', 'Mexico'];
+            const round16Scores = {
+                'Canada': { home: 0, away: 3 },
+                'Paraguay': { home: 0, away: 1 },
+                'Brazil': { home: 1, away: 2 },
+                'Mexico': { home: 2, away: 3 }
+            };
+            allMatches.forEach(m => {
+                if (round16Finished.includes(m.home.name)) {
+                    m.status = 'finished';
+                    m.score.home = round16Scores[m.home.name].home;
+                    m.score.away = round16Scores[m.home.name].away;
+                }
+            });
+
+            // Set Round of 32 as finished (all of them)
+            allMatches.filter(m => m.round === 'Round of 32').forEach(m => {
+                m.status = 'finished';
+            });
+
+            // Set one live match (pick from upcoming Quarter-finals or Round of 16)
+            const liveCandidates = allMatches.filter(m => m.status !== 'finished' && m.round !== 'Semi-finals' && m.round !== 'Final');
+            if (liveCandidates.length > 0) {
+                const pick = liveCandidates[Math.floor(Math.random() * liveCandidates.length)];
+                pick.status = 'live';
+            }
+
+            // Re-render with current filter
+            renderMatches(currentFilter);
+        }, 16000);
+    </script>
+</body>
+</html>
