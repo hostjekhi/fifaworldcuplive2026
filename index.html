@@ -471,9 +471,12 @@
   ];
 
   const qfMatches = [
-    // Updated kickoff time to 12:30 AM IST (19:00 UTC)
-    { stage:'qf', id: 'qf-0', kickoff:'2026-07-10T19:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-france-v-morocco-quarter-final-live-stream/2505658947874' },
-    { stage:'qf', id: 'qf-1', kickoff:'2026-07-11T19:00:00Z', status:'SCHEDULED' },
+    // Removed the Belgium/Spain link from here. Back to normal scheduled slot.
+    { stage:'qf', id: 'qf-0', kickoff:'2026-07-09T20:00:00Z', status:'SCHEDULED' },
+    
+    // CORRECTED: 12:30 AM IST match. This is the slot where Belgium vs Spain will appear.
+    { stage:'qf', id: 'qf-1', kickoff:'2026-07-10T19:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-france-v-morocco-quarter-final-live-stream/2505658947874' },
+    
     { stage:'qf', id: 'qf-2', kickoff:'2026-07-11T21:00:00Z', status:'SCHEDULED' },
     { stage:'qf', id: 'qf-3', kickoff:'2026-07-12T01:00:00Z', status:'SCHEDULED' }
   ];
@@ -669,7 +672,7 @@
     if (upcoming){
       text = `NEXT UP — <span>${upcoming.home.name} vs ${upcoming.away.name}</span> — ${fmtKickoff(new Date(upcoming.kickoff))}`;
     }
-    const full = `${text} &nbsp;&nbsp;•&nbsp;&nbsp; FIFA WORLD Cup 2026 LIVE STAGE ENGINE &nbsp;&nbsp;•&nbsp;&nbsp; `;
+    const full = `${text} &nbsp;&nbsp;•&nbsp;&nbsp; FIFA WORLD CUP 2026 LIVE STAGE ENGINE &nbsp;&nbsp;•&nbsp;&nbsp; `;
     document.getElementById('tickerTrack').innerHTML = full + full;
   }
 
