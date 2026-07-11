@@ -459,25 +459,24 @@
   // 150 minutes cutoff in milliseconds
   const CUTOFF_MS = 150 * 60 * 1000;
 
+  // ALL R16 matches are now officially 'FT'
   const matches = [
     { stage:'r16', id: 'can-mar', home:{name:'Canada', code:'ca', s:0}, away:{name:'Morocco', code:'ma', s:3}, kickoff:'2026-07-04T17:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-canada-v-morocco-round-of-16-live-stream/2505215555802' },
     { stage:'r16', id: 'par-fra', home:{name:'Paraguay', code:'py', s:0}, away:{name:'France', code:'fr', s:1}, kickoff:'2026-07-04T21:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-paraguay-v-france-round-of-16-live-stream/2505321539575' },
-    { stage:'r16', id: 'usa-bel', home:{name:'USA', code:'us'}, away:{name:'Belgium', code:'be'}, kickoff:'2026-07-07T00:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-usa-v-belgium-round-of-16-live-stream/2505451587654' },
-    { stage:'r16', id: 'por-esp', home:{name:'Portugal', code:'pt'}, away:{name:'Spain', code:'es'}, kickoff:'2026-07-06T19:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-portugal-v-spain-round-of-16-live-stream/2505573955647' },
+    { stage:'r16', id: 'usa-bel', home:{name:'USA', code:'us', s:0}, away:{name:'Belgium', code:'be', s:1}, kickoff:'2026-07-07T00:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-usa-v-belgium-round-of-16-live-stream/2505451587654' },
+    { stage:'r16', id: 'por-esp', home:{name:'Portugal', code:'pt', s:0}, away:{name:'Spain', code:'es', s:1}, kickoff:'2026-07-06T19:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-portugal-v-spain-round-of-16-live-stream/2505573955647' },
     { stage:'r16', id: 'brz-nor', home:{name:'Brazil', code:'br', s:1}, away:{name:'Norway', code:'no', s:2}, kickoff:'2026-07-05T20:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-brazil-v-norway-round-of-16-live-stream/2505321539608' },
     { stage:'r16', id: 'mex-eng', home:{name:'Mexico', code:'mx', s:2}, away:{name:'England', code:'gb-eng', s:3}, kickoff:'2026-07-06T00:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-mexico-v-england-round-of-16-live-stream/2505448003694' },
-    { stage:'r16', id: 'sui-col', home:{name:'Switzerland', code:'ch'}, away:{name:'Colombia', code:'co'}, kickoff:'2026-07-07T20:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-switzerland-v-colombia-round-of-16-live-stream/2505624643610' },
+    { stage:'r16', id: 'sui-col', home:{name:'Switzerland', code:'ch', s:1}, away:{name:'Colombia', code:'co', s:0}, kickoff:'2026-07-07T20:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-switzerland-v-colombia-round-of-16-live-stream/2505624643610' },
     { stage:'r16', id: 'arg-egy', home:{name:'Argentina', code:'ar', s:3}, away:{name:'Egypt', code:'eg', s:2}, kickoff:'2026-07-07T16:00:00Z', status:'FT', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-argentina-v-egypt-round-of-16-live-stream/2505623107596' },
   ];
 
+  // All 4 Quarterfinal Links are now fully embedded
   const qfMatches = [
-    { stage:'qf', id: 'qf-0', kickoff:'2026-07-10T19:00:00Z', status:'SCHEDULED' },
-    
-    // EMBEDDED CORRECTLY: Direct Spain vs Belgium live stream link linked right here
+    { stage:'qf', id: 'qf-0', kickoff:'2026-07-10T19:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-france-v-morocco-quarter-final-live-stream/2505658947874' },
     { stage:'qf', id: 'qf-1', kickoff:'2026-07-11T19:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-spain-v-belgium-quarter-final-live-stream/2505854019998?fbclid=PAT01DUAS-Fb1leHRuA2FlbQIxMABzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAacp97z--77lrx4gSAvW3GbxizO2ol7PoBaO3smDtgXAMZRBSCLkqa7wz6F-Og_aem_PRWXbVcd5ZQwMSG3NADxEA' },
-    
-    { stage:'qf', id: 'qf-2', kickoff:'2026-07-11T21:00:00Z', status:'SCHEDULED' },
-    { stage:'qf', id: 'qf-3', kickoff:'2026-07-12T01:00:00Z', status:'SCHEDULED' }
+    { stage:'qf', id: 'qf-2', kickoff:'2026-07-11T21:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-norway-v-england-quarter-final-live-stream/2505737795543' },
+    { stage:'qf', id: 'qf-3', kickoff:'2026-07-12T01:00:00Z', status:'SCHEDULED', watchUrl:'https://www.sbs.com.au/ondemand/sports-program/fifa-world-cup-2026-argentina-v-switzerland-quarter-final-live-stream/2506004547682' }
   ];
 
   const r32 = [
@@ -618,8 +617,8 @@
       
       } else {
         badgeHtml = `<span class="badge finished">Full time</span>`;
-        const replayLink = m.watchUrl ? `<a class="watch-btn preview" href="${m.watchUrl}" target="_blank" rel="noopener noreferrer">Replay</a>` : '';
-        footHtml = `<div class="countdown">Match ended</div><div class="btn-group">${replayLink}</div>`;
+        // Removed the Replay button completely as requested!
+        footHtml = `<div class="countdown">Match ended</div><div class="btn-group"></div>`;
       }
     }
     
